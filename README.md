@@ -33,7 +33,7 @@ El **Planner 2026** es una herramienta de planificación de contenido para cread
 
 - **Planificar con anticipación**: Ver todo el año 2026 en una sola pantalla, mes por mes.
 - **Organizar por marcas**: Cada publicación puede asignarse a una *unidad* (marca, canal o proyecto).
-- **Definir el tipo de contenido**: Cada slot tiene un *formato* (CapCut, Carrusel, Stream, etc.).
+- **Definir el tipo de contenido**: Cada slot tiene un *formato* (Carrusel, Stream, etc.).
 - **Registrar en qué redes se publica**: Instagram, TikTok, YouTube Shorts, YouTube, LinkedIn, X.
 - **Guardar métricas**: Likes y alcance de cada publicación.
 - **Añadir notas**: Comentarios libres por slot.
@@ -78,7 +78,6 @@ planner-2026/
 └── img/              # (carpeta que deberás crear con tus propias imágenes)
     ├── favicon.svg
     ├── logo.svg      # Logo principal del header
-    └── ...           # Otros logos personalizados (ej: soymarcus.svg, lemora.svg)
 ```
 
 ---
@@ -110,11 +109,11 @@ El **Planner 2026**, desarrollado por @soymarcusdev, está diseñado para ser al
 
 !Imagen de referencia
 
-### 🖼️ Personalización: Logos en el header
+### 🖼️ Personalización: Logo en el header
 
-Los logos del encabezado son imágenes (SVG, PNG, etc.) ubicadas en la carpeta `img/`.
+El logo del encabezado es una imagen (SVG, PNG, etc.) ubicada en la carpeta `img/`.
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/index.html` — Buscar el bloque `<div class="logos-title">`
+**Archivo:** `/Planner_FREE/index.html` — Buscar el bloque `<div class="logos-title">`
 
 ```html
 <div class="logos-title">
@@ -135,7 +134,7 @@ Añadí una nueva línea `<img>` dentro de `<div class="logos-title">` con la ru
 **Para eliminar un logo**, simplemente borrá la línea `<img>` correspondiente.
 
 **Tamaño de los logos:**
-El tamaño se define en `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/styles.css` — buscar la clase `.logo`:
+El tamaño se define en `/Planner_FREE/styles.css` — buscar la clase `.logo`:
 
 ```css
 .logo {
@@ -148,7 +147,7 @@ El tamaño se define en `/Users/martinleidreiter/Library/Mobile Documents/com~ap
 
 Las **unidades** son las marcas, canales o proyectos que gestionás. Aparecen como opciones en el selector "Unidad" de cada slot.
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` — Líneas 26 a 29 (aproximadamente)
+**Archivo:** `/Planner_FREE/app.js` — Líneas 26 a 29 (aproximadamente)
 
 ```js
 // ANTES (ejemplo original)
@@ -181,7 +180,7 @@ Los **formatos** son los tipos de contenido que producís. Cada formato tiene un
 
 **Paso 1 — Cambiar la lista de formatos**
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` — Líneas 31 a 35 (aproximadamente)
+**Archivo:** `/app.js` — Líneas 31 a 35 (aproximadamente)
 
 ```js
 // ANTES (ejemplo original)
@@ -208,7 +207,7 @@ const formatos = [
 
 **Paso 2 — Asignar un color a cada formato**
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/styles.css` — Buscar el bloque "FORMATO COLORS" (aproximadamente líneas 225 a 238)
+**Archivo:** `/Planner_FREE/styles.css` — Buscar el bloque "FORMATO COLORS" (aproximadamente líneas 225 a 238)
 
 La regla de nomenclatura para el nombre de la clase CSS es:
 
@@ -224,7 +223,7 @@ La regla de nomenclatura para el nombre de la clase CSS es:
 | `"Proyectos-IA"` | `.format-proyectos-ia` |
 | `"Reels"` | `.format-reels` |
 
-> **⚙️ Cómo se genera:** En `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` (línea 316), la función `applyFormatColor` convierte el valor del formato a minúsculas y elimina espacios: `value.toLowerCase().replace(" ", "")`. Los guiones medios **sí se conservan**.
+> **⚙️ Cómo se genera:** En `/Planner_FREE/app.js` (línea 316), la función `applyFormatColor` convierte el valor del formato a minúsculas y elimina espacios: `value.toLowerCase().replace(" ", "")`. Los guiones medios **sí se conservan**.
 
 **Bloque de estilos a modificar en `styles.css`:**
 
@@ -249,7 +248,7 @@ La regla de nomenclatura para el nombre de la clase CSS es:
 
 Las redes disponibles como checkbox en cada slot se definen en `app.js`.
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` — Línea 37 (aproximadamente)
+**Archivo:** `/Planner_FREE/app.js` — Línea 37 (aproximadamente)
 
 ```js
 // ANTES
@@ -264,7 +263,7 @@ const redes = ["Instagram","TikTok","YouTube","Pinterest","Threads"];
 
 **Cambiar el ícono de cada red:**
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` — Líneas 263 a 274 (aproximadamente)
+**Archivo:** `/Planner_FREE/app.js` — Líneas 263 a 274 (aproximadamente)
 
 ```js
 function getIconClass(red) {
@@ -294,7 +293,7 @@ El **Planner 2026** te ofrece horarios sugeridos para cada slot, facilitando la 
 
 **Paso 1 — Modificar los horarios en `app.js`**
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/app.js` — Línea 20 (aproximadamente)
+**Archivo:** `/Planner_FREE/app.js` — Línea 20 (aproximadamente)
 
 ```js
 /* Horas sugeridas según índice de slot (auto-fill si vacío) */
@@ -305,7 +304,7 @@ Simplemente cambiá los valores dentro del array `horasSugeridas` por los que pr
 
 **Paso 2 — Modificar los horarios en el `datalist` de `index.html` (opcional, para sugerencias visuales)**
 
-**Archivo:** `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/index.html` — Buscar el bloque `<datalist id="timePresets">`
+**Archivo:** `/Planner_FREE/index.html` — Buscar el bloque `<datalist id="timePresets">`
 
 ```html
 <datalist id="timePresets">
@@ -321,7 +320,7 @@ Aunque los valores de `app.js` son los que se usan para auto-completar, esta `da
 
 ### 🌈 Personalización: Colores globales del tema
 
-Los colores principales de la app se definen como variables CSS al inicio de `/Users/martinleidreiter/Library/Mobile Documents/com~apple~CloudDocs/Local Sites/Planner FREE/styles.css` — Líneas 1 a 5:
+Los colores principales de la app se definen como variables CSS al inicio de `/Planner_FREE/styles.css` — Líneas 1 a 5:
 
 ```css
 :root {
@@ -472,4 +471,4 @@ Este proyecto es de código abierto. Podés usarlo, modificarlo y distribuirlo l
 
 ---
 
-*Planner 2026 — hecho con 🖤 por @soymarcusdev para creadores de contenido*
+*Planner 2026 — hecho con ♥️ por @soymarcusdev para creadores de contenido y mi comunidad*
